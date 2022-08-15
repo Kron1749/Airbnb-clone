@@ -8,23 +8,24 @@ import cardsElements from "./data";
 
 export default function App() {
   const cards = cardsElements.map((card) => {
-    // return <Card img={require(card.coverImg)} rating={card.stats.rating} />;
     return (
       <Card
+        key={card.id}
         img={card.coverImg}
         rating={card.stats.rating}
         number_of_rating={card.stats.reviewCount}
-        country={card.location}
+        location={card.location}
         title={card.title}
         price={card.price}
+        openSpots={card.openSpots}
       />
     );
   });
   return (
     <div>
       <Navbar />
-      <Hero />
-      {cards}
+      {/* <Hero /> */}
+      <section className="cards-list">{cards}</section>
     </div>
   );
 }
